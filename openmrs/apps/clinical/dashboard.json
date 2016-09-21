@@ -1,0 +1,149 @@
+{
+    "general": {
+        "translationKey": "DASHBOARD_TAB_GENERAL_KEY",
+        "displayByDefault": true,
+        "maxRecentlyViewedPatients": 10,
+        "sections": {
+            "patientInformation": {
+                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY",
+                "type": "patientInformation",
+                "displayOrder": 0,
+                "ageLimit": 100,
+                "patientAttributes": [],
+                "addressFields": [
+                    "cityVillage",
+                    "address4",
+                    "address3",
+                    "countryDistrict"
+                ]
+            },
+            "DMInitial": {
+                "translationKey": "DM Initial",
+                "type": "vitals",
+                "isObservation": true,
+                "displayOrder": 1,
+                "dashboardConfig": {
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "DM Initial"
+                    ],
+                    "numberOfVisits": 2
+                },
+                "expandedViewConfig": {
+                    "conceptNames": [
+                        "DM Initial"
+                    ],
+                    "numberOfVisits": 2,
+                    "showDetailsButton": true,
+                    "pivotTable": {}
+                }
+            },
+            "DMFollow-up": {
+                "translationKey": "DM Follow Up",
+                "type": "vitals",
+                "isObservation": true,
+                "displayOrder": 2,
+                "dashboardConfig": {
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "DM Follow-up"
+                    ],
+                    "numberOfVisits": 2
+                },
+                "expandedViewConfig": {
+                    "conceptNames": [
+                        "DM Follow-up"
+                    ],
+                    "numberOfVisits": 2,
+                    "showDetailsButton": true,
+                    "pivotTable": {}
+                }
+            },
+            "HTNInitial": {
+                "translationKey": "HTN Initial",
+                "type": "vitals",
+                "isObservation": true,
+                "displayOrder": 3,
+                "dashboardConfig": {
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "HTN Initial"
+                    ],
+                    "numberOfVisits": 2
+                },
+                "expandedViewConfig": {
+                    "conceptNames": [
+                        "HTN Initial"
+                    ],
+                    "numberOfVisits": 2,
+                    "showDetailsButton": true,
+                    "pivotTable": {}
+                }
+            },
+            "HTNFollow-Up": {
+                "translationKey": "HTN Follow Up",
+                "type": "vitals",
+                "isObservation": true,
+                "displayOrder": 4,
+                "dashboardConfig": {
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "HTN Follow-Up"
+                    ],
+                    "numberOfVisits": 2
+                },
+                "expandedViewConfig": {
+                    "conceptNames": [
+                        "HTN Follow-UpD"
+                    ],
+                    "numberOfVisits": 2,
+                    "showDetailsButton": true,
+                    "pivotTable": {}
+                }
+            }
+            ,
+            "StrokeInitial": {
+                "translationKey": "Stroke Initial",
+                "type": "vitals",
+                "isObservation": true,
+                "displayOrder": 5,
+                "dashboardConfig": {
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "Stroke Initial"
+                    ],
+                    "numberOfVisits": 2
+                },
+                "expandedViewConfig": {
+                    "conceptNames": [
+                        "Stroke Initial"
+                    ],
+                    "numberOfVisits": 2,
+                    "showDetailsButton": true,
+                    "pivotTable": {}
+                }
+            },
+            "StrokeFollow": {
+                "translationKey": "Stroke Follow Up",
+                "type": "vitals",
+                "isObservation": true,
+                "displayOrder": 6,
+                "dashboardConfig": {
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "Stroke Follow-Up"
+                    ],
+                    "numberOfVisits": 2
+                },
+                "expandedViewConfig": {
+                    "conceptNames": [
+                        "Stroke Follow-Up"
+                    ],
+                    "numberOfVisits": 2,
+                    "showDetailsButton": true,
+                    "pivotTable": {}
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,136 @@
+{
+    "id": "bahmni.clinical",
+    "extensionPoints": [
+        {
+            "id": "org.bahmni.clinical.consultation.board",
+            "description": "Bahmni Clinical Consultation Page"
+        },
+        {
+            "id": "org.bahmni.clinical.conceptSetGroup.*",
+            "description": "Define conceptsets part of a conceptset group"
+        },
+        {
+            "id": "org.bahmni.clinical.orders",
+            "description": "Bahmni Orders Page"
+        },
+        {
+            "id": "org.bahmni.patient.search",
+            "description": "Bahmni Patient search, lookups Page"
+        }
+    ],
+    "contextModel": [
+        "patientUuid",
+        "visitUuid"
+    ],
+    "config": {
+        "quickPrints":false,
+        "showNetworkStatusMessage": false,
+        "networkStatusCheckInterval": 5000,
+    	"diagnosisStatus": "Inactive",
+            "program": {
+                "patientInformation": {
+                    "ageLimit": 100
+                }
+            },
+        "obsIgnoreList": [
+            "REGISTRATION FEES",
+            "COMMENTS",
+            "Patient file"
+        ],
+        "otherInvestigationsMap": {
+            "Radiology": "Radiology Order",
+            "Endoscopy": "Endoscopy Order"
+        },
+        "allowConsultationWhenNoOpenVisit": false,
+        "defaultVisitType": "OPD",
+        "visitTypeForRetrospectiveEntries": "Special OPD",
+        "maxConceptSetLevels": 3,
+        "allowOnlyCodedDiagnosis": false,
+        "conceptSetUI": {
+            "All Observation Templates": {
+                "showPanelView": false
+            },
+            "DM Initial, Substance use (current use)":{
+                "multiSelect": true
+            },
+            "DM Initial, Co-morbidities":{
+                "multiSelect": true
+            },
+            "DM Follow, Metformin 500 mg":{
+                "conciseText": true
+            },
+            "DM Follow, Glipizide 5 mg":{
+                "conciseText": true
+            },
+            "DM Follow, Counselling":{
+                "multiSelect": true
+            },
+            "DM Follow, ADRs":{
+                "multiSelect": true
+            },
+            "DM Follow, New Co-morbidities":{
+                "multiSelect": true
+            },
+            "HTN Initial, Substance use (current use)":{
+                "multiSelect": true
+            },
+            "HTN Initial, Co-morbidities":{
+                "multiSelect": true
+            },
+            "HTN Follow, Hydrochlorothiazide 25 mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Atenolol 50 mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Amlodipine 5mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Counselling":{
+                "multiSelect": true
+            },
+            "HTN Follow, ADRs":{
+                "multiSelect": true
+            },
+            "HTN Follow, New Co-morbidities":{
+                "multiSelect": true
+            },
+            "Stroke Initial, Substance use (current use)":{
+                "multiSelect": true
+            },
+            "Stroke Initial, Co-morbidities":{
+                "multiSelect": true
+            },
+            "Stroke Follow, Ecosprin 75 mg":{
+                "conciseText": true
+            },
+            "Stroke Follow, Atorvastatin 10 mg":{
+                "conciseText": true
+            },
+            "Stroke Follow, Counselling":{
+                "multiSelect": true
+            },
+            "Stroke Follow, ADRs":{
+                "multiSelect": true
+            },
+            "Stroke Follow, New Co-morbidities":{
+                "multiSelect": true
+            },
+            "defaults": {
+                "Number of living children": 1,
+                "Accepted Family Planning methods": [
+                    "Condoms",
+                    "Pills"
+                ],
+                "Pain management given": true,
+                "Safe Abortion, Remarks": "Remarks",
+                "Malaria, Death Date": "2015-12-01"
+            }
+        },
+        "visitPage": {
+            "observationDisplay": {
+                "conceptNames": []
+            }
+        }
+    }
+}
