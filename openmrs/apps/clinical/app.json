@@ -62,6 +62,18 @@
             "DM Follow, Glipizide 5 mg":{
                 "conciseText": true
             },
+             "DM Follow, Patient Taking, Metformin 500 mg":{
+                "conciseText": true
+            },
+            "DM Follow, Patient Taking, Glipizide 5 mg":{
+                "conciseText": true
+            },
+             "DM Follow, Rx, Metformin 500 mg":{
+                "conciseText": true
+            },
+            "DM Follow, Rx, Glipizide 5 mg":{
+                "conciseText": true
+            },
             "DM Follow, Counselling":{
                 "multiSelect": true
             },
@@ -85,6 +97,36 @@
             },
             "HTN Follow, Amlodipine 5mg":{
                 "conciseText": true
+            },
+            "HTN Follow, Patient taking, Hydrochlorothiazide 25 mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Patient taking, Amlodipine 5mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Patient taking, Atenolol 50 mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Rx, Hydrochlorothiazide 25 mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Rx, Atenolol 50 mg":{
+                "conciseText": true
+            },
+            "HTN Follow, Rx, Amlodipine 5mg":{
+                "conciseText": true
+            },
+            "Stroke Follow, Rx, Atorvastatin 10 mg":{
+                "conciseText": true
+            },
+            "Stroke Follow, Rx, Ecosprin 75 mg":{
+                "conciseText":true
+            },
+            "Stroke Follow, Patient Taking, Atorvastatin 10 mg":{
+                "conciseText": true
+            },
+            "Stroke Follow, Patient Taking, Ecosprin 75 mg":{
+                "conciseText":true
             },
             "HTN Follow, Counselling":{
                 "multiSelect": true
