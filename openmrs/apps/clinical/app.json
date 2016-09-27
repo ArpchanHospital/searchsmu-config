@@ -32,6 +32,12 @@
                     "ageLimit": 100
                 }
             },
+
+             "hidden": {
+                    "conceptSetUI": [
+                        "DM Follow, Confirm"
+                    ]
+                },
         "obsIgnoreList": [
             "REGISTRATION FEES",
             "COMMENTS",
@@ -54,6 +60,9 @@
                 "multiSelect": true
             },
             "DM Initial, Co-morbidities":{
+                "multiSelect": true
+            },
+            "DM Initial, Family H/O":{
                 "multiSelect": true
             },
             "DM Follow, Metformin 500 mg":{
@@ -87,6 +96,9 @@
                 "multiSelect": true
             },
             "HTN Initial, Co-morbidities":{
+                "multiSelect": true
+            },
+            "HTN Initial, Family Hx (mother, father, brothers and sisters)":{
                 "multiSelect": true
             },
             "HTN Follow, Hydrochlorothiazide 25 mg":{
@@ -143,6 +155,9 @@
             "Stroke Initial, Co-morbidities":{
                 "multiSelect": true
             },
+            "Stroke Initial, Family H/O":{
+                "multiSelect": true
+            },
             "Stroke Follow, Ecosprin 75 mg":{
                 "conciseText": true
             },
@@ -164,6 +179,7 @@
                     "Condoms",
                     "Pills"
                 ],
+                "DM Follow, Confirm": "Yes",
                 "Pain management given": true,
                 "Safe Abortion, Remarks": "Remarks",
                 "Malaria, Death Date": "2015-12-01"

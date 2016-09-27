@@ -178,7 +178,7 @@
             "conceptNamesToFilter": [
                 "HTN Follow-Up"
             ],
-            "conceptNameDisplayFormat": "short",
+            "conceptNameDisplayFormat": "fully_specified",
             "conceptValuesToFilter": [],
             "conceptClassesToFilter": [],
             "locationTagsToFilter": [],
@@ -190,5 +190,20 @@
                 "OPD"
             ]
         }
+    },
+    "mmuMIS2Rep": {
+    "name": "MMU MIS 2 Report",
+    "type": "MRSGeneric",
+        "config": {
+             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_2.SQL"
+        }
+    },
+    "mmuMIS3Rep": {
+    "name": "MMU MIS 3 Report",
+    "type": "MRSGeneric",
+        "config": {
+             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_3.SQL"
+        }
     }
+
 }
