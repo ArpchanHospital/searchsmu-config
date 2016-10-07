@@ -57,7 +57,8 @@ Select 		CntOfDMFollowPatPerVill.city_village,
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('DM Follow, Metformin 500 mg') 
+					Where cname.name in('DM Follow, Metformin Afternoon','DM Follow, Metformin Morning','DM Follow, Metformin Night') 
+                    and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 					and o.voided =0 
                     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					and cname.concept_name_type='FULLY_SPECIFIED'
@@ -82,7 +83,8 @@ Select 		CntOfDMFollowPatPerVill.city_village,
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('DM Follow, Glipizide 5 mg') 
+					Where cname.name in('DM Follow, Glipizide Afternoon','DM Follow, Glipizide Morning','DM Follow, Glipizide Night') 
+                    and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 					and o.voided =0 
                     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					and cname.concept_name_type='FULLY_SPECIFIED'
@@ -122,7 +124,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('DM Follow, Glipizide 5 mg') 
+													Where cname.name in('DM Follow, Glipizide Afternoon','DM Follow, Glipizide Morning','DM Follow, Glipizide Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -136,7 +139,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('DM Follow, Glipizide 5 mg') 
+													Where cname.name in('DM Follow, Glipizide Afternoon','DM Follow, Glipizide Morning','DM Follow, Glipizide Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -152,7 +156,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('DM Follow, Metformin 500 mg') 
+													Where cname.name in('DM Follow, Metformin Afternoon','DM Follow, Metformin Morning','DM Follow, Metformin Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')  
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -167,7 +172,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('DM Follow, Metformin 500 mg') 
+													Where cname.name in('DM Follow, Metformin Afternoon','DM Follow, Metformin Morning','DM Follow, Metformin Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -234,7 +240,8 @@ Left join
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('Stroke Follow, Ecosprin 75 mg') 
+					Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+                    and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 					and o.voided =0 
 					and cname.concept_name_type='FULLY_SPECIFIED'
                     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
@@ -259,7 +266,8 @@ Left join
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('Stroke Follow, Atorvastatin 10 mg') 
+					Where cname.name in('Stroke Follow, Atorvastatin Morning','Stroke Follow, Atorvastatin Afternoon','Stroke Follow, Atorvastatin Night') 
+                    and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 					and o.voided =0 
 					and cname.concept_name_type='FULLY_SPECIFIED'
                     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
@@ -299,7 +307,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('Stroke Follow, Atorvastatin 10 mg') 
+													Where cname.name in('Stroke Follow, Atorvastatin Morning','Stroke Follow, Atorvastatin Afternoon','Stroke Follow, Atorvastatin Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -313,7 +322,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('Stroke Follow, Atorvastatin 10 mg') 
+													Where cname.name in('Stroke Follow, Atorvastatin Morning','Stroke Follow, Atorvastatin Afternoon','Stroke Follow, Atorvastatin Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -329,7 +339,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('Stroke Follow, Ecosprin 75 mg') 
+													Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -344,7 +355,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('Stroke Follow, Ecosprin 75 mg') 
+													Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -418,7 +430,8 @@ Select 		CntOfHTNFollowPatPerVill.city_village,
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('HTN Follow, Amlodipine 5mg') 
+					Where cname.name in('HTN Follow, Amlodipine Morning','HTN Follow, Amlodipine Afternoon','HTN Follow, Amlodipine Night') 
+                    and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 					and o.voided =0 
 					and cname.concept_name_type='FULLY_SPECIFIED'
                     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
@@ -443,7 +456,8 @@ Select 		CntOfHTNFollowPatPerVill.city_village,
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('HTN Follow, Hydrochlorothiazide 25 mg') 
+					Where cname.name in('HTN Follow, Hydrochlorothiazide Morning','HTN Follow, Hydrochlorothiazide Afternoon','HTN Follow, Hydrochlorothiazide Night') 
+                    and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 					and o.voided =0 
 					and cname.concept_name_type='FULLY_SPECIFIED'
                     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
@@ -467,7 +481,8 @@ Select 		CntOfHTNFollowPatPerVill.city_village,
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('HTN Follow, Atenolol 50 mg') 
+					Where cname.name in('HTN Follow, Atenolol Morning','HTN Follow, Atenolol Afternoon','HTN Follow, Atenolol Night') 
+                    and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 					and o.voided =0 
 					and cname.concept_name_type='FULLY_SPECIFIED'
                     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
@@ -507,7 +522,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('HTN Follow, Hydrochlorothiazide 25 mg') 
+													Where cname.name in('HTN Follow, Hydrochlorothiazide Morning','HTN Follow, Hydrochlorothiazide Afternoon','HTN Follow, Hydrochlorothiazide Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -521,7 +537,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('HTN Follow, Hydrochlorothiazide 25 mg') 
+													Where cname.name in('HTN Follow, Hydrochlorothiazide Morning','HTN Follow, Hydrochlorothiazide Afternoon','HTN Follow, Hydrochlorothiazide Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -537,7 +554,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('HTN Follow, Amlodipine 5mg') 
+													Where cname.name in('HTN Follow, Amlodipine Morning','HTN Follow, Amlodipine Afternoon','HTN Follow, Amlodipine Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -552,7 +570,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('HTN Follow, Amlodipine 5mg') 
+													Where cname.name in('HTN Follow, Amlodipine Morning','HTN Follow, Amlodipine Afternoon','HTN Follow, Amlodipine Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED')
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -567,7 +586,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('HTN Follow, Atenolol 50 mg') 
+													Where cname.name in('HTN Follow, Atenolol Morning','HTN Follow, Atenolol Afternoon','HTN Follow, Atenolol Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village
@@ -581,7 +601,8 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('HTN Follow, Atenolol 50 mg') 
+													Where cname.name in('HTN Follow, Atenolol Morning','HTN Follow, Atenolol Afternoon','HTN Follow, Atenolol Night') 
+													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
 													and paddr1.city_village=paddr.city_village

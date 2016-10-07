@@ -205,7 +205,8 @@ Left join
 	on o.concept_id=cname.concept_id
 	inner join person_address paddr
 	on paddr.person_id=o.person_id
-	Where cname.name = 'Stroke Follow, Ecosprin 75 mg'
+	Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+	and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
     and o.voided=0
     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 	and cname.concept_name_type='FULLY_SPECIFIED'
