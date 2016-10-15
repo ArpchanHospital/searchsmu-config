@@ -67,9 +67,14 @@ Bahmni.ConceptSet.FormConditions.rules = {
             return {
                 enable: ["Stroke Follow, SAE description"]
             }
+        } 
+        else if (result == "Other") {
+            return {
+                enable: ["Stroke Follow, Other description"]
+            }
         } else {
             return {
-                disable: ["Stroke Follow, SAE description"]
+                disable: ["Stroke Follow, Other description", "Stroke Follow, SAE description"]
             }
         }
     }
