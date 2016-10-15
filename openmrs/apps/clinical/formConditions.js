@@ -33,9 +33,14 @@ Bahmni.ConceptSet.FormConditions.rules = {
             return {
                 enable: ["DM Follow, SAE description"]
             }
+        } 
+        else if (result == "Other") {
+            return {
+                enable: ["DM Follow, Other description"]
+            }
         } else {
             return {
-                disable: ["DM Follow, SAE description"]
+                disable: ["DM Follow, Other description", "DM Follow, SAE description"]
             }
         }
     },
@@ -45,9 +50,14 @@ Bahmni.ConceptSet.FormConditions.rules = {
             return {
                 enable: ["HTN Follow, SAE description"]
             }
+        } 
+        else if (result == "Other") {
+            return {
+                enable: ["HTN Follow, Other description"]
+            }
         } else {
             return {
-                disable: ["HTN Follow, SAE description"]
+                disable: ["HTN Follow, Other description", "HTN Follow, SAE description"]
             }
         }
     },
