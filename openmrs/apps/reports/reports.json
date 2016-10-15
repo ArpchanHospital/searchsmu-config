@@ -18,7 +18,7 @@
             "conceptNamesToFilter": [
                 "Stroke Initial"
             ],
-            "conceptNameDisplayFormat": "short",
+            "conceptNameDisplayFormat": "fully_specified",
             "conceptValuesToFilter": [],
             "conceptClassesToFilter": [],
             "locationTagsToFilter": [],
@@ -50,7 +50,7 @@
             "conceptNamesToFilter": [
                 "Stroke Follow-Up"
             ],
-            "conceptNameDisplayFormat": "short",
+            "conceptNameDisplayFormat": "fully_specified",
             "conceptValuesToFilter": [],
             "conceptClassesToFilter": [],
             "locationTagsToFilter": [],
@@ -82,7 +82,7 @@
             "conceptNamesToFilter": [
                 "DM Initial"
             ],
-            "conceptNameDisplayFormat": "short",
+            "conceptNameDisplayFormat": "fully_specified",
             "conceptValuesToFilter": [],
             "conceptClassesToFilter": [],
             "locationTagsToFilter": [],
@@ -114,7 +114,7 @@
             "conceptNamesToFilter": [
                 "DM Follow-up"
             ],
-            "conceptNameDisplayFormat": "short",
+            "conceptNameDisplayFormat": "fully_specified",
             "conceptValuesToFilter": [],
             "conceptClassesToFilter": [],
             "locationTagsToFilter": [],
@@ -146,7 +146,7 @@
             "conceptNamesToFilter": [
                 "HTN Initial"
             ],
-            "conceptNameDisplayFormat": "short",
+            "conceptNameDisplayFormat": "fully_specified",
             "conceptValuesToFilter": [],
             "conceptClassesToFilter": [],
             "locationTagsToFilter": [],

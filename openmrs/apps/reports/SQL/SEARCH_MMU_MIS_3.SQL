@@ -9,7 +9,7 @@ DMFollowUpCounter.PerCent_of_patients_on_Metformin as 'DM Percent of patients on
 DMFollowUpCounter.Percent_of_patients_on_Glipizide as 'DM Percent of patients on Glipizide',
 DMFollowUpCounter.Percent_of_patients_on_one_drug as 'DM Percent of patients on one drug',
 DMFollowUpCounter.Percent_of_patients_on_two_drug as 'DM Percent of patients on two drug',
-StrokeFollowUpCounter.PerCent_of_patients_on_Ecosprin as 'Stroke Percent of patients on Ecosprin',
+StrokeFollowUpCounter.PerCent_of_patients_on_Aspirin as 'Stroke Percent of patients on Aspirin',
 StrokeFollowUpCounter.Percent_of_patients_on_Atorvastatin as 'Stroke Percent of patients on Atorvastatin',
 StrokeFollowUpCounter.Percent_of_patients_on_one_drug as 'Stroke Percent of patients on one drug',
 StrokeFollowUpCounter.Percent_of_patients_on_two_drug as 'Stroke Percent of patients on two drug'
@@ -208,11 +208,11 @@ Left join
 	Select 		
 			CntOfStrokeFollowPatPerVill.city_village,
 			CntOfStrokeFollowPatPerVill.CountOfPat,
-            CountOfEcosprinPerVill.CountOfEcosprin,
+            CountOfAspirinPerVill.CountOfAspirin,
             CountOfAtorvastatinPerVill.CountOfAtorvastatin,
             VillDrugCnt.PatCntOneDrug,
             VillDrugCnt.PatCntTwoDrug,
-			CountOfEcosprinPerVill.CountOfEcosprin/ CntOfStrokeFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_Ecosprin',
+			CountOfAspirinPerVill.CountOfAspirin/ CntOfStrokeFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_Aspirin',
 			CountOfAtorvastatinPerVill.CountOfAtorvastatin/ CntOfStrokeFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_Atorvastatin',
             VillDrugCnt.PatCntOneDrug/ CntOfStrokeFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_one_drug',
 			VillDrugCnt.PatCntTwoDrug/ CntOfStrokeFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_two_drug'
@@ -234,13 +234,13 @@ Left join
 			Left join
 
 			(
-					Select paddr.city_village, Count(distinct o.person_id) CountOfEcosprin /*Count of patients who were prescribed Ecosprin*/
+					Select paddr.city_village, Count(distinct o.person_id) CountOfAspirin /*Count of patients who were prescribed Aspirin*/
 					from obs o
 					inner join concept_name cname
 					on o.concept_id=cname.concept_id
 					inner join person_address paddr
 					on paddr.person_id=o.person_id
-					Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+					Where cname.name in('Stroke Follow, Aspirin Morning','Stroke Follow, Aspirin Afternoon','Stroke Follow, Aspirin Night') 
                     and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 					and o.voided =0 
 					and cname.concept_name_type='FULLY_SPECIFIED'
@@ -253,9 +253,9 @@ Left join
 											and cname.concept_name_type='FULLY_SPECIFIED'
 										  ) 
 					group by paddr.city_village
-			) as CountOfEcosprinPerVill
+			) as CountOfAspirinPerVill
 
-			On CountOfEcosprinPerVill.city_village = CntOfStrokeFollowPatPerVill.city_village
+			On CountOfAspirinPerVill.city_village = CntOfStrokeFollowPatPerVill.city_village
 
 			Left join
 
@@ -339,7 +339,7 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+													Where cname.name in('Stroke Follow, Aspirin Morning','Stroke Follow, Aspirin Afternoon','Stroke Follow, Aspirin Night') 
 													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
@@ -355,7 +355,7 @@ left join
 													on o1.concept_id=cname.concept_id
 													inner join person_address paddr1
 													on paddr1.person_id=o1.person_id
-													Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+													Where cname.name in('Stroke Follow, Aspirin Morning','Stroke Follow, Aspirin Afternoon','Stroke Follow, Aspirin Night') 
 													and o1.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
 													and o1.voided =0 
 													and cname.concept_name_type='FULLY_SPECIFIED'
@@ -644,7 +644,7 @@ Where coalesce(  /*To remove the villages which doesn't have any data recorded*/
 			DMFollowUpCounter.Percent_of_patients_on_Glipizide,
 			DMFollowUpCounter.Percent_of_patients_on_one_drug,
 			DMFollowUpCounter.Percent_of_patients_on_two_drug,
-			StrokeFollowUpCounter.PerCent_of_patients_on_Ecosprin,
+			StrokeFollowUpCounter.PerCent_of_patients_on_Aspirin,
 			StrokeFollowUpCounter.Percent_of_patients_on_Atorvastatin,
 			StrokeFollowUpCounter.Percent_of_patients_on_one_drug,
 			StrokeFollowUpCounter.Percent_of_patients_on_two_drug

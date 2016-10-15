@@ -8,7 +8,7 @@ TotalDMFollowUpCount as 'Total DM patients under follow up in the MMU',
 Count_Patient_RCBG_Less_200 as 'DM patients whose RCBG <200',
 Count_Patient_RCBG_More_300 as 'DM patients whose RCBG>300',
 TotalStrokeFollowUpCount as 'Total stroke patients under follow up in the MMU',
-StrokeFollowUpEcosprinCount as 'Stroke patients receiving aspirin',
+StrokeFollowUpAspirinCount as 'Stroke patients receiving aspirin',
 Count_StrokeFollowPatient_BP_Less_140_90 as 'Stroke patients with BP<140/90  (SBP less than 140 AND DBP<90)'
 
 from 
@@ -200,21 +200,21 @@ on StrokeFollowTotal.city_village=PA.city_village
 Left join
 
 (
-	Select  paddr.city_village, Count(distinct o.person_id) StrokeFollowUpEcosprinCount from obs o
+	Select  paddr.city_village, Count(distinct o.person_id) StrokeFollowUpAspirinCount from obs o
 	inner join concept_name cname
 	on o.concept_id=cname.concept_id
 	inner join person_address paddr
 	on paddr.person_id=o.person_id
-	Where cname.name in('Stroke Follow, Ecosprin Morning','Stroke Follow, Ecosprin Afternoon','Stroke Follow, Ecosprin Night') 
+	Where cname.name in('Stroke Follow, Aspirin Morning','Stroke Follow, Aspirin Afternoon','Stroke Follow, Aspirin Night') 
 	and o.value_coded not in(Select concept_id from concept_name where name ='0' and concept_name_type='FULLY_SPECIFIED') 
     and o.voided=0
     and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 	and cname.concept_name_type='FULLY_SPECIFIED'
 	Group by paddr.city_village
 
-) as StrokeFollowUpEcosprin
+) as StrokeFollowUpAspirin
 
-on StrokeFollowUpEcosprin.city_village= PA.city_village
+on StrokeFollowUpAspirin.city_village= PA.city_village
 
 Left join
 

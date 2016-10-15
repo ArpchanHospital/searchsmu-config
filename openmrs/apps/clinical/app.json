@@ -308,18 +308,18 @@
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Ecosprin 75 mg":{
+            "Stroke Follow, Aspirin 75 mg":{
                 "isTabular": true
             },
-            "Stroke Follow, Ecosprin Morning":{
+            "Stroke Follow, Aspirin Morning":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Ecosprin Afternoon":{
+            "Stroke Follow, Aspirin Afternoon":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Ecosprin Night":{
+            "Stroke Follow, Aspirin Night":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
@@ -353,18 +353,18 @@
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Patient Taking, Ecosprin 75 mg":{
+            "Stroke Follow, Patient Taking, Aspirin 75 mg":{
                 "isTabular": true
             },
-            "Stroke Follow, Patient taking, Ecosprin Morning":{
+            "Stroke Follow, Patient taking, Aspirin Morning":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Patient taking, Ecosprin Afternoon":{
+            "Stroke Follow, Patient taking, Aspirin Afternoon":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Patient taking, Ecosprin Night":{
+            "Stroke Follow, Patient taking, Aspirin Night":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
@@ -383,18 +383,18 @@
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Rx, Ecosprin 75 mg":{
+            "Stroke Follow, Rx, Aspirin 75 mg":{
                 "isTabular": true
             },
-            "Stroke Follow, Rx, Ecosprin Morning":{
+            "Stroke Follow, Rx, Aspirin Morning":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Rx, Ecosprin Afternoon":{
+            "Stroke Follow, Rx, Aspirin Afternoon":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
-            "Stroke Follow, Rx, Ecosprin Night":{
+            "Stroke Follow, Rx, Aspirin Night":{
                 "disableAddNotes": true,
                 "dropdown": true
             },
