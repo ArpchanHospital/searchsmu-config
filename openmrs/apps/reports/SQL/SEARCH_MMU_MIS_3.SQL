@@ -35,17 +35,21 @@ Select 		CntOfDMFollowPatPerVill.city_village,
 			VillDrugCnt.PatCntTwoDrug/ CntOfDMFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_two_drug'
             from 
 			( 		
-					Select paddr.city_village, Count(distinct o.person_id) CountOfPat /* To get the total patient count in DM Follow up*/
-					from obs o
-					inner join concept_name cname
-					on o.concept_id=cname.concept_id
-					inner join person_address paddr
-					on paddr.person_id=o.person_id
-					Where cname.name in('DM Follow-up') 
-					and o.voided =0 
-					and cname.concept_name_type='FULLY_SPECIFIED'
-                    and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
-					group by paddr.city_village
+					Select paddr.city_village,Count(distinct pa.person_id) CountOfPat   /* To get the total patient count in DM Follow up*/
+					from person_attribute pa 
+					inner join person_attribute_type pt 
+					on pa.person_attribute_type_id=pt.person_attribute_type_id 
+					inner join person_address paddr 
+					on paddr.person_id=pa.person_id 
+					inner join concept_name cn 
+					on cn.concept_id=pa.value 
+					where pt.name ='dmConfirmed' 
+					and cn.concept_name_type='FULLY_SPECIFIED'
+					and cn.voided=0
+					and cn.name='Yes'
+					and pa.voided=0
+					and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+					Group by paddr.city_village
 			) as CntOfDMFollowPatPerVill
 
 			Left join
@@ -218,17 +222,22 @@ Left join
 			VillDrugCnt.PatCntTwoDrug/ CntOfStrokeFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_two_drug'
             from 
 			( 		
-					Select paddr.city_village, Count(distinct o.person_id) CountOfPat /* To get the total patient count in Stroke Follow up*/
-					from obs o
-					inner join concept_name cname
-					on o.concept_id=cname.concept_id
-					inner join person_address paddr
-					on paddr.person_id=o.person_id
-					Where cname.name in('Stroke Follow-up') 
-					and o.voided =0 
-					and cname.concept_name_type='FULLY_SPECIFIED'
-                    and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
-					group by paddr.city_village
+					Select paddr.city_village,Count(distinct pa.person_id) CountOfPat  /* To get the total patient count in Stroke Follow up*/
+					from person_attribute pa 
+					inner join person_attribute_type pt 
+					on pa.person_attribute_type_id=pt.person_attribute_type_id 
+					inner join person_address paddr 
+					on paddr.person_id=pa.person_id 
+					inner join concept_name cn 
+					on cn.concept_id=pa.value 
+					where pt.name ='strokeConfirmed' 
+					and cn.concept_name_type='FULLY_SPECIFIED'
+					and cn.voided=0
+					and cn.name='Yes'
+					and pa.voided=0
+					and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+					Group by paddr.city_village
+                    
 			) as CntOfStrokeFollowPatPerVill
 
 			Left join
@@ -408,17 +417,22 @@ Select 		CntOfHTNFollowPatPerVill.city_village,
             VillDrugCnt.PatCntThreeDrug/ CntOfHTNFollowPatPerVill.CountOfPat * 100 as 'Percent_of_patients_on_three_drug'
             from 
 			( 		
-					Select paddr.city_village, Count(distinct o.person_id) CountOfPat /* To get the total patient count in HTN Follow up*/
-					from obs o
-					inner join concept_name cname
-					on o.concept_id=cname.concept_id
-					inner join person_address paddr
-					on paddr.person_id=o.person_id
-					Where cname.name in('HTN Follow-up') 
-					and o.voided =0 
-					and cname.concept_name_type='FULLY_SPECIFIED'
-                    and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
-					group by paddr.city_village
+					Select paddr.city_village,Count(distinct pa.person_id) CountOfPat   /* To get the total patient count in HTN Follow up*/
+					from person_attribute pa 
+					inner join person_attribute_type pt 
+					on pa.person_attribute_type_id=pt.person_attribute_type_id 
+					inner join person_address paddr 
+					on paddr.person_id=pa.person_id 
+					inner join concept_name cn 
+					on cn.concept_id=pa.value 
+					where pt.name ='htnConfirmed' 
+					and cn.concept_name_type='FULLY_SPECIFIED'
+					and cn.voided=0
+					and cn.name='Yes'
+					and pa.voided=0
+					and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+					Group by paddr.city_village
+                    
 			) as CntOfHTNFollowPatPerVill
 
 			Left join

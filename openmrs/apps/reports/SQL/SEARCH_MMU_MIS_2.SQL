@@ -1,12 +1,15 @@
 Select 
 PA.city_village Village,
-PA.TotalPatientInVillage as 'Total patients under a village',
+PA.TotalPatientInVillage as 'Total eligible population',
+TotalHTNConfirmedPerVillage.countpervillage as 'Total HTN patients confirmed',
 TotalHTNFollowUpCount as 'Total HTN patients under follow up in the MMU',
 Count_Patient_BP_Less_140_90 as 'HTN patients whose BP<140/90 (SBP less than 140 AND DBP<90)',
 Count_Patient_BP_More_159_99 as 'HTN patients whose BP>159/99 (SBP >159 AND DBP>99)',
+TotalDMConfirmedPerVillage.countpervillage as 'Total DM patients confirmed',
 TotalDMFollowUpCount as 'Total DM patients under follow up in the MMU',
 Count_Patient_RCBG_Less_200 as 'DM patients whose RCBG <200',
 Count_Patient_RCBG_More_300 as 'DM patients whose RCBG>300',
+TotalStrokeConfirmedPerVillage.countpervillage as 'Total Stroke patients confirmed',
 TotalStrokeFollowUpCount as 'Total stroke patients under follow up in the MMU',
 StrokeFollowUpAspirinCount as 'Stroke patients receiving aspirin',
 Count_StrokeFollowPatient_BP_Less_140_90 as 'Stroke patients with BP<140/90  (SBP less than 140 AND DBP<90)'
@@ -18,6 +21,29 @@ from
 	group by city_village
 
 ) as PA
+
+left join
+(
+
+Select paddr.city_village,Count(distinct pa.person_id) countpervillage
+from person_attribute pa 
+inner join person_attribute_type pt 
+on pa.person_attribute_type_id=pt.person_attribute_type_id 
+inner join person_address paddr 
+on paddr.person_id=pa.person_id 
+inner join concept_name cn 
+on cn.concept_id=pa.value 
+where pt.name ='htnConfirmed' 
+and cn.concept_name_type='FULLY_SPECIFIED'
+and cn.voided=0
+and cn.name='Yes'
+and pa.voided=0
+and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+Group by paddr.city_village
+
+) as TotalHTNConfirmedPerVillage
+
+On PA.city_village=TotalHTNConfirmedPerVillage.city_village
 
 Left join 
 
@@ -122,6 +148,30 @@ On HTNFollowUpMore15999.city_village=PA.city_village
 Left Join
 
 (
+
+Select paddr.city_village,Count(distinct pa.person_id) countpervillage
+from person_attribute pa 
+inner join person_attribute_type pt 
+on pa.person_attribute_type_id=pt.person_attribute_type_id 
+inner join person_address paddr 
+on paddr.person_id=pa.person_id 
+inner join concept_name cn 
+on cn.concept_id=pa.value 
+where pt.name ='dmConfirmed' 
+and cn.concept_name_type='FULLY_SPECIFIED'
+and cn.voided=0
+and cn.name='Yes'
+and pa.voided=0
+and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+Group by paddr.city_village
+
+) as TotalDMConfirmedPerVillage
+
+On PA.city_village=TotalDMConfirmedPerVillage.city_village
+
+left join
+
+(
 	Select paddr.city_village, Count(distinct o.person_id) TotalDMFollowUpCount from obs o
 	inner join concept_name cname
 	on o.concept_id=cname.concept_id
@@ -182,7 +232,32 @@ Left Join
 )as DMFollow_RCBG_More_300
 on DMFollow_RCBG_More_300.city_village=PA.city_village
 
+
 Left join
+
+(
+
+Select paddr.city_village,Count(distinct pa.person_id) countpervillage
+from person_attribute pa 
+inner join person_attribute_type pt 
+on pa.person_attribute_type_id=pt.person_attribute_type_id 
+inner join person_address paddr 
+on paddr.person_id=pa.person_id 
+inner join concept_name cn 
+on cn.concept_id=pa.value 
+where pt.name ='strokeConfirmed' 
+and cn.concept_name_type='FULLY_SPECIFIED'
+and cn.voided=0
+and cn.name='Yes'
+and pa.voided=0
+and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+Group by paddr.city_village
+
+) as TotalStrokeConfirmedPerVillage
+
+On PA.city_village=TotalStrokeConfirmedPerVillage.city_village
+
+left join
 
 (
 	Select paddr.city_village, Count(distinct o.person_id) TotalStrokeFollowUpCount from obs o
