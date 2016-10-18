@@ -56,6 +56,18 @@
             "All Observation Templates": {
                 "showPanelView": false
             },
+            "DM Follow-up": {
+            "hideAbnormalButton" : true
+            },
+            "HTN Follow-Up": {
+            "hideAbnormalButton" : true
+            },
+            "Stroke Follow-Up": {
+            "hideAbnormalButton" : true
+            },
+            "Screening Form": {
+            "hideAbnormalButton" : true
+            },
             "DM Initial, Substance use (current use)":{
                 "multiSelect": true
             },
