@@ -69,31 +69,31 @@ on HTNDMTotalPatientIdentifiedInVillage.city_village =PatientCountPerVillage.cit
 Left Join
 (
 /*HTN patients seen this month*/
-Select paddr.city_village,Count(distinct pa.person_id)+ifnull((
-						Select  Count(distinct o.person_id) TotalHTNFollowUpCount
-                        from obs o inner join concept_name cname
-						on o.concept_id=cname.concept_id
-						inner join person_address Innerpaddr
-						on Innerpaddr.person_id=o.person_id
-						Where cname.name in ( 'HTN Follow-Up','DM Follow-up') 
-						and cname.concept_name_type='FULLY_SPECIFIED' 
+Select Innerpaddr.city_village,ifnull( Count(distinct o.person_id),0)+ifnull(
+					(
+						Select Count(distinct pa.person_id) TotalHTNConfirmed from person_attribute pa 
+						inner join person_attribute_type pt 
+						on pa.person_attribute_type_id=pt.person_attribute_type_id 
+						inner join person_address paddr 
+						on paddr.person_id=pa.person_id 
+						inner join concept_name cn 
+						on cn.concept_id=pa.value 
+						where pt.name in ('htnConfirmed','dmConfirmed') 
+						and cn.concept_name_type='FULLY_SPECIFIED'
+						and cn.voided=0
+						and cn.name='Yes'
 						and Innerpaddr.city_village=paddr.city_village
-						and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
-						Group by Innerpaddr.city_village
-					),0) CountOfPat
-					from person_attribute pa 
-					inner join person_attribute_type pt 
-					on pa.person_attribute_type_id=pt.person_attribute_type_id 
-					inner join person_address paddr 
-					on paddr.person_id=pa.person_id 
-					inner join concept_name cn 
-					on cn.concept_id=pa.value 
-					where pt.name in ('htnConfirmed','dmConfirmed') 
-					and cn.concept_name_type='FULLY_SPECIFIED'
-					and cn.voided=0
-					and cn.name='Yes'
-                    and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
-					Group by paddr.city_village
+						and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+						Group by paddr.city_village
+                    ),0) CountOfPat
+			from obs o inner join concept_name cname
+			on o.concept_id=cname.concept_id
+			inner join person_address Innerpaddr
+			on Innerpaddr.person_id=o.person_id
+			Where cname.name in ( 'HTN Follow-Up','DM Follow-up') 
+			and cname.concept_name_type='FULLY_SPECIFIED' 
+			and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
+			Group by Innerpaddr.city_village
 ) as HTNDMPatientSeenInThisMonth
 on HTNDMPatientSeenInThisMonth.city_village = PatientCountPerVillage.city_village
 Left Join
