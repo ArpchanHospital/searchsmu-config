@@ -29,7 +29,7 @@ Left Join
 			and cn.concept_name_type='FULLY_SPECIFIED'
 			and cn.voided=0
 			and cn.name='Yes'
-			/*and cast(coalesce(pa.date_changed,pa.date_created) as date) < '#startDate#'*/
+			and cast(coalesce(pa.date_changed,pa.date_created) as date) < '#startDate#'
 			Group by paddr.city_village
 ) as HTNPatientNeedingFollowUP
 On HTNPatientNeedingFollowUP.city_village= PatientCountPerVillage.city_village
@@ -43,7 +43,7 @@ Left Join
 			on paddr.person_id=o.person_id
 			Where cname.name in ( 'HTN Follow-Up', 'Screening Form') 
 			and cname.concept_name_type='FULLY_SPECIFIED' 
-			/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+			and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 			Group by paddr.city_village
 ) as HTNNumberSeenByMMUInThisVisit
 on HTNNumberSeenByMMUInThisVisit.city_village=PatientCountPerVillage.city_village
@@ -62,7 +62,7 @@ Left Join
 			and cn.concept_name_type='FULLY_SPECIFIED'
 			and cn.voided=0
 			and cn.name='Yes'
-			/*and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'*/
+			and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'
 			Group by paddr.city_village
 ) as HTNTotalPatientIdentifiedInVillage
 on HTNTotalPatientIdentifiedInVillage.city_village =PatientCountPerVillage.city_village
@@ -78,7 +78,7 @@ Select paddr.city_village,Count(distinct pa.person_id)+ifnull((
 						Where cname.name in ( 'HTN Follow-Up') 
 						and cname.concept_name_type='FULLY_SPECIFIED' 
 						and Innerpaddr.city_village=paddr.city_village
-						/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+						and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 						Group by Innerpaddr.city_village
 					),0) CountOfPat
 					from person_attribute pa 
@@ -92,7 +92,7 @@ Select paddr.city_village,Count(distinct pa.person_id)+ifnull((
 					and cn.concept_name_type='FULLY_SPECIFIED'
 					and cn.voided=0
 					and cn.name='Yes'
-                    /*and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'*/
+                    and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
 					Group by paddr.city_village
 ) as HTNPatientSeenInThisMonth
 on HTNPatientSeenInThisMonth.city_village = PatientCountPerVillage.city_village
@@ -110,7 +110,7 @@ Left Join
 						on paddr.person_id=o.person_id
 						Where cname.name in ( 'HTN Follow-Up') 
 						and cname.concept_name_type='FULLY_SPECIFIED' 
-						/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+						and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 						Group by paddr.city_village 
 					) as HTNFollowUPForAMonth
 					inner join
@@ -126,7 +126,7 @@ Left Join
 						and cn.concept_name_type='FULLY_SPECIFIED'
 						and cn.voided=0
 						and cn.name='Yes'
-						/*and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'*/
+						and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'
 						Group by paddr.city_village 
                     ) as TotalHTNConfirmedTillDate
 					on HTNFollowUPForAMonth.city_village=TotalHTNConfirmedTillDate.city_village
@@ -145,14 +145,14 @@ Left Join
 					and cname.concept_name_type='FULLY_SPECIFIED'
 					and o.voided=0
 					and o.value_coded = (Select concept_id from concept_name where name ='CHW' and cname.concept_name_type='FULLY_SPECIFIED' and voided=0)
-					/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+					and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					and o.encounter_id in (
 												Select o.encounter_id from obs o
 												inner join concept_name cname
 												on o.concept_id=cname.concept_id
 												Where cname.name = 'HTN Follow-Up' 
 												and cname.concept_name_type='FULLY_SPECIFIED'
-												/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+												and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					) 
 					group by paddr.city_village
 ) as HTNNumberOfPatientGivenMedByCHW
@@ -170,14 +170,14 @@ Left Join
 					and cname.concept_name_type='FULLY_SPECIFIED'
 					and o.value_coded not in (Select concept_id from concept_name where name in ('NONE','SAE') and cname.concept_name_type='FULLY_SPECIFIED' and voided=0)
 					and o.voided=0
-					/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+					and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					and o.encounter_id in (
 												Select o.encounter_id from obs o
 												inner join concept_name cname
 												on o.concept_id=cname.concept_id
 												Where cname.name = 'HTN Follow-Up' 
 												and cname.concept_name_type='FULLY_SPECIFIED'
-												/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+												and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					)
 					group by paddr.city_village
 )HTNPatientWithSideEffects
@@ -195,14 +195,14 @@ Left join
 					and cname.concept_name_type='FULLY_SPECIFIED'
 					and o.value_coded in (Select concept_id from concept_name where name ='SAE' and cname.concept_name_type='FULLY_SPECIFIED' and voided=0)
 					and o.voided=0
-					/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+					and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					and o.encounter_id in (
 												Select o.encounter_id from obs o
 												inner join concept_name cname
 												on o.concept_id=cname.concept_id
 												Where cname.name = 'HTN Follow-Up' 
 												and cname.concept_name_type='FULLY_SPECIFIED'
-												/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+												and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 					)
 					group by paddr.city_village
 ) as HTNPatientWithSAE
@@ -221,8 +221,8 @@ Left Join
 				Where cname.name = 'HTN Follow-Up' 
 				and cname.concept_name_type='FULLY_SPECIFIED'
                 and p.dead = 1
-                /*and cast(p.death_date as date) BETWEEN '#startDate#' and '#endDate#'*/ 
-				/*and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'*/
+                and cast(p.death_date as date) BETWEEN '#startDate#' and '#endDate#' 
+				and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
                 group by paddr.city_village
 ) as HTNPatientDeath
 on HTNPatientDeath.city_village=PatientCountPerVillage.city_village

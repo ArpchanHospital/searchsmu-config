@@ -195,28 +195,28 @@
     "name": "MMU MIS 1 HTN Report",
     "type": "MRSGeneric",
         "config": {
-             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_HTN.SQL"
+             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_HTN.sql"
         }
     },
     "mmuMIS1RepDM": {
     "name": "MMU MIS 1 DM Report",
     "type": "MRSGeneric",
         "config": {
-             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_DM.SQL"
+             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_DM.sql"
         }
     },
     "mmuMIS1RepHTNDM": {
     "name": "MMU MIS 1 HTN and DM Report",
     "type": "MRSGeneric",
         "config": {
-             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_HTN_DM.SQL"
+             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_HTN_DM.sql"
         }
     },
     "mmuMIS1RepStroke": {
     "name": "MMU MIS 1 Stroke Report",
     "type": "MRSGeneric",
         "config": {
-             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_Stroke.SQL"
+             "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/SQL/SEARCH_MMU_MIS_1_Stroke.sql"
         }
     },
     "mmuMIS2Rep": {
