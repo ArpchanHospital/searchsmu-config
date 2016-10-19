@@ -41,8 +41,9 @@ Left Join
 			on o.concept_id=cname.concept_id
 			inner join person_address paddr
 			on paddr.person_id=o.person_id
-			Where cname.name in ( 'HTN Follow-Up','DM Follow-up', 'Screening Form') 
+			Where cname.name in ( 'HTN Follow-Up','DM Follow-up','Screening Form') 
 			and cname.concept_name_type='FULLY_SPECIFIED' 
+            and o.voided=0
 			and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 			Group by paddr.city_village
 ) as HTNDMNumberSeenByMMUInThisVisit
@@ -92,6 +93,7 @@ Select Innerpaddr.city_village,ifnull( Count(distinct o.person_id),0)+ifnull(
 			on Innerpaddr.person_id=o.person_id
 			Where cname.name in ( 'HTN Follow-Up','DM Follow-up') 
 			and cname.concept_name_type='FULLY_SPECIFIED' 
+            and o.voided=0
 			and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 			Group by Innerpaddr.city_village
 ) as HTNDMPatientSeenInThisMonth
@@ -110,6 +112,7 @@ Left Join
 						on paddr.person_id=o.person_id
 						Where cname.name in ( 'HTN Follow-Up','DM Follow-up') 
 						and cname.concept_name_type='FULLY_SPECIFIED' 
+                        and o.voided=0
 						and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 						Group by paddr.city_village 
 					) as HTNFollowUPForAMonth
@@ -221,6 +224,7 @@ Left Join
 				Where cname.name in( 'HTN Follow-Up' ,'DM Follow-up')
 				and cname.concept_name_type='FULLY_SPECIFIED'
                 and p.dead = 1
+                and o.voided=0
                 and cast(p.death_date as date) BETWEEN '#startDate#' and '#endDate#' 
 				and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
                 group by paddr.city_village
@@ -270,9 +274,5 @@ left join
 				) ab group by ab.city_village
 
 ) HTNDMPatientAbsentInLastThreeVisits
-on HTNDMPatientAbsentInLastThreeVisits.city_village=PatientCountPerVillage.city_village;
-                    
-                    
-
-
-
+on HTNDMPatientAbsentInLastThreeVisits.city_village=PatientCountPerVillage.city_village
+order by PatientCountPerVillage.city_village;

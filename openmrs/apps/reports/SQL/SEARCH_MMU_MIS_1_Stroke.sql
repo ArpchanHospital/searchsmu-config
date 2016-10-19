@@ -43,6 +43,7 @@ Left Join
 			on paddr.person_id=o.person_id
 			Where cname.name in ( 'Stroke Follow-Up', 'Screening Form') 
 			and cname.concept_name_type='FULLY_SPECIFIED' 
+            and o.voided=0
 			and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 			Group by paddr.city_village
 ) as StrokeNumberSeenByMMUInThisVisit
@@ -92,6 +93,7 @@ Select Innerpaddr.city_village,ifnull( Count(distinct o.person_id),0)+ifnull(
 			on Innerpaddr.person_id=o.person_id
 			Where cname.name in ( 'Stroke Follow-Up') 
 			and cname.concept_name_type='FULLY_SPECIFIED' 
+            and o.voided=0
 			and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 			Group by Innerpaddr.city_village
 ) as StrokePatientSeenInThisMonth
@@ -110,6 +112,7 @@ Left Join
 						on paddr.person_id=o.person_id
 						Where cname.name in ( 'Stroke Follow-Up') 
 						and cname.concept_name_type='FULLY_SPECIFIED' 
+                        and o.voided=0
 						and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
 						Group by paddr.city_village 
 					) as StrokeFollowUPForAMonth
@@ -221,6 +224,7 @@ Left Join
 				Where cname.name = 'Stroke Follow-Up' 
 				and cname.concept_name_type='FULLY_SPECIFIED'
                 and p.dead = 1
+                and o.voided=0
                 and cast(p.death_date as date) BETWEEN '#startDate#' and '#endDate#' 
 				and cast(o.obs_datetime as date) BETWEEN '#startDate#' and '#endDate#'
                 group by paddr.city_village
@@ -270,4 +274,5 @@ left join
 				) ab group by ab.city_village
 
 ) StrokePatientAbsentInLastThreeVisits
-on StrokePatientAbsentInLastThreeVisits.city_village=PatientCountPerVillage.city_village;
+on StrokePatientAbsentInLastThreeVisits.city_village=PatientCountPerVillage.city_village
+order by PatientCountPerVillage.city_village;
