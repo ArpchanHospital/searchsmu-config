@@ -48,7 +48,7 @@ Select 		CntOfDMFollowPatPerVill.city_village,
 					and cn.voided=0
 					and cn.name='Yes'
 					and pa.voided=0
-					and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+					and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'
 					Group by paddr.city_village
 			) as CntOfDMFollowPatPerVill
 
@@ -235,7 +235,7 @@ Left join
 					and cn.voided=0
 					and cn.name='Yes'
 					and pa.voided=0
-					and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+					and cast(coalesce(pa.date_changed,pa.date_created) as date) <='#endDate#'
 					Group by paddr.city_village
                     
 			) as CntOfStrokeFollowPatPerVill
@@ -430,7 +430,7 @@ Select 		CntOfHTNFollowPatPerVill.city_village,
 					and cn.voided=0
 					and cn.name='Yes'
 					and pa.voided=0
-					and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+					and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'
 					Group by paddr.city_village
                     
 			) as CntOfHTNFollowPatPerVill
