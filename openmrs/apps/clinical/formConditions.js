@@ -27,6 +27,42 @@ Bahmni.ConceptSet.FormConditions.rules = {
             }
         }
     },
+    'DM Follow, Medicine dispensed to' : function (formName, formFieldValues) {
+        var result = formFieldValues['DM Follow, Medicine dispensed to'];
+        if (result == "Other") {
+            return {
+                enable: ["DM Follow, Medicine dispense other"]
+            }
+        } else {
+            return {
+                disable: ["DM Follow, Medicine dispense other"]
+            }
+        }
+    },
+    'HTN Follow, Medicine dispensed to' : function (formName, formFieldValues) {
+        var result = formFieldValues['HTN Follow, Medicine dispensed to'];
+        if (result == "Other") {
+            return {
+                enable: ["HTN Follow, Medicine dispense other"]
+            }
+        } else {
+            return {
+                disable: ["HTN Follow, Medicine dispense other"]
+            }
+        }
+    },
+    'Stroke Follow, Medicine dispensed to' : function (formName, formFieldValues) {
+        var result = formFieldValues['Stroke Follow, Medicine dispensed to'];
+        if (result == "Other") {
+            return {
+                enable: ["Stroke Follow, Medicine dispense other"]
+            }
+        } else {
+            return {
+                disable: ["Stroke Follow, Medicine dispense other"]
+            }
+        }
+    },
     'DM Follow, ADRs' : function (formName, formFieldValues) {
         var result = formFieldValues['DM Follow, ADRs'];
         if (result == "SAE") {
