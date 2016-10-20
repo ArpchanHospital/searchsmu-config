@@ -38,7 +38,7 @@ and cn.concept_name_type='FULLY_SPECIFIED'
 and cn.voided=0
 and cn.name='Yes'
 and pa.voided=0
-and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+and cast(coalesce(pa.date_changed,pa.date_created) as date) <='#endDate#'
 Group by paddr.city_village
 
 ) as TotalHTNConfirmedPerVillage
@@ -162,7 +162,7 @@ and cn.concept_name_type='FULLY_SPECIFIED'
 and cn.voided=0
 and cn.name='Yes'
 and pa.voided=0
-and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'
 Group by paddr.city_village
 
 ) as TotalDMConfirmedPerVillage
@@ -250,7 +250,7 @@ and cn.concept_name_type='FULLY_SPECIFIED'
 and cn.voided=0
 and cn.name='Yes'
 and pa.voided=0
-and cast(coalesce(pa.date_changed,pa.date_created) as date) BETWEEN '#startDate#' and '#endDate#'
+and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#endDate#'
 Group by paddr.city_village
 
 ) as TotalStrokeConfirmedPerVillage
