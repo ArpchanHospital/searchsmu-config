@@ -77,95 +77,165 @@
             "DM Initial, Family H/O":{
                 "multiSelect": true
             },
+            "Random Blood Sugar Data":{
+                "required": true
+            },
+            "Systolic Data":{
+                "required": true
+            },
+            "Diastolic Data":{
+                "required": true
+            },
+            "DM Follow, Weight": {
+                "required": true
+            },
+            "DM Follow, How many days patient is out of medicines?":{
+                "required": true
+            },
+            "DM Follow, Have the patient stopped the medicines?":{
+                "required": true
+            },
+            "DM Follow, Any cardiac chest pain since the last clinic visit?":{
+                "required": true
+            },
+            "DM Follow, any shortness of breath due to which patient is unable to do household/occupational work?":{
+                "required": true
+            },
+            "DM Follow, since last visit, did the patient have weakness on one side of his body?":{
+                "required": true
+            },
+            "DM Follow, If there was weakness on one side of the body, did it last more than 24 hrs":{
+                "required": true
+            },
+            "DM Follow, If there was weakness on one side of the body, did it last more than 24 hrs":{
+                "required": true
+            },
+            "DM Follow, If there was weakness on one side of the body, did it last more than 24 hrs":{
+                "required": true
+            },
+            "DM Follow, If there was weakness on one side of the body, did it last more than 24 hrs":{
+                "required": true
+            },
+            "DM Follow, Has the patient taken todays medicines as instructed":{
+                "required": true
+            },
+            "DM Follow, Number of times food is taken in a day":{
+                "required": true
+            },
             "DM Follow, Metformin 500 mg":{
                 "isTabular": true
             },
             "DM Follow, Metformin Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Metformin Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Metformin Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Glipizide 5 mg":{
                 "isTabular": true
             },
             "DM Follow, Glipizide Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Glipizide Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Glipizide Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
              "DM Follow, Patient Taking, Metformin 500 mg":{
                 "isTabular": true
             },
             "DM Follow, Patient Taking, Metformin, Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Patient Taking, Metformin, Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Patient Taking, Metformin, Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Patient Taking, Glipizide 5 mg":{
                 "isTabular": true
             },
             "DM Follow, Patient Taking, Glipizide, Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Patient Taking, Glipizide, Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
             "DM Follow, Patient Taking, Glipizide, Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required": true
             },
              "DM Follow, Rx, Metformin 500 mg":{
-                "isTabular": true
+                "isTabular": true,
+                 "required": true 
             },
             "DM Follow, Rx, Metformin, Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                 "required": true 
             },
             "DM Follow, Rx, Metformin, Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                 "required": true 
             },
             "DM Follow, Rx, Metformin, Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                 "required": true 
             },
             "DM Follow, Rx, Glipizide 5 mg":{
                 "isTabular": true
             },
             "DM Follow, Rx, Glipizide, Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                 "required": true 
             },
             "DM Follow, Rx, Glipizide, Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                 "required": true 
             },
             "DM Follow, Rx, Glipizide, Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                 "required": true 
+            },
+            "DM Follow, Days":{
+                "required":true
+            },
+            "DM Follow, Medicine dispensed to":{
+                "required":true
             },
             "DM Follow, Counselling":{
                 "multiSelect": true
@@ -173,8 +243,24 @@
             "DM Follow, ADRs":{
                 "multiSelect": true
             },
+            "DM Follow, ADRs":{
+                "required": true
+            },
             "DM Follow, New Co-morbidities":{
                 "multiSelect": true
+            },
+            "DM Follow, New Co-morbidities":{
+               
+                "required": true
+            },
+            "DM Follow, Current use of tobacco":{
+                "required": true
+            },
+            "DM Follow, Current use of alcohol":{
+                "required": true
+            },
+            "DM Follow, Counselling":{
+                "required": true
             },
             "HTN Initial, Substance use (current use)":{
                 "multiSelect": true
@@ -185,230 +271,315 @@
             "HTN Initial, Family Hx (mother, father, brothers and sisters)":{
                 "multiSelect": true
             },
+            "HTN Follow, Weight":{
+                "required":true
+            },
+            "HTN Follow, Pulse Data":{
+                "required":true
+            },
+            "HTN Follow, Has the patient taken todays medicines as instructed":{
+               "required":true 
+            },
             "HTN Follow, Hydrochlorothiazide 25 mg":{
                 "isTabular": true
             },
             "HTN Follow, Hydrochlorothiazide Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Hydrochlorothiazide Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Hydrochlorothiazide Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Atenolol 50 mg":{
                 "isTabular": true
             },
             "HTN Follow, Atenolol Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Atenolol Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Atenolol Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Amlodipine 5mg":{
                 "isTabular": true
             },
             "HTN Follow, Amlodipine Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Amlodipine Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Amlodipine Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Hydrochlorothiazide 25 mg":{
                 "isTabular": true
             },
             "HTN Follow, Patient taking, Hydrochlorothiazide Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Hydrochlorothiazide Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Hydrochlorothiazide Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Amlodipine 5mg":{
                 "isTabular": true
             },
             "HTN Follow, Patient taking, Amlodipine Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Amlodipine Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Amlodipine Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Atenolol 50 mg":{
                 "isTabular": true
             },
             "HTN Follow, Patient taking, Atenolol Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Atenolol Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Patient taking, Atenolol Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Hydrochlorothiazide 25 mg":{
                "isTabular": true
             },
             "HTN Follow, Rx, Hydrochlorothiazide Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Hydrochlorothiazide Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Hydrochlorothiazide Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Atenolol 50 mg":{
                 "isTabular": true
             },
             "HTN Follow, Rx, Atenolol Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Atenolol Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Atenolol Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Amlodipine 5mg":{
                 "isTabular": true
             },
             "HTN Follow, Rx, Amlodipine Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Amlodipine Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Rx, Amlodipine Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
+            },
+            "HTN Follow, How many days the patient is out of medicines?":{
+                "required":true
+            },
+            "HTN Follow, Have the patient stopped the medication?":{
+                "required":true
+            },
+            "HTN Follow, Any cardiac chest pain since the last clinic visit?":{
+                "required":true
+            },
+            "HTN Follow, any shortness of breath due to which patient is unable to do household/occupational work?":{
+                "required":true
+            },
+            "HTN Follow, since last visit, did the patient have weakness on one side of his body?":{
+                "required":true
+            },
+            "HTN Follow, If there was weakness on one side of the body, did it last more than 24 hrs":{
+                "required":true
+            },
+            "HTN Follow, Days":{
+                "required":true
+            },
+            "HTN Follow, Medicine dispensed to":{
+                "required":true
+            },
+            "HTN Follow, Current use of tobacco":{
+                "required":true
+            },
+            "HTN Follow, Current use of alcohol":{
+                "required":true
             },
             "Stroke Follow, Aspirin 75 mg":{
                 "isTabular": true
             },
             "Stroke Follow, Aspirin Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Aspirin Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Aspirin Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Atorvastatin 10 mg":{
-                "isTabular": true
+                "isTabular": true,
+                "required":true
             },
             "Stroke Follow, Atorvastatin Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Atorvastatin Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Atorvastatin Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Patient Taking, Atorvastatin 10 mg":{
                 "isTabular": true
             },
             "Stroke Follow, Patient taking, Atorvastatin Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Patient taking, Atorvastatin Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Patient taking, Atorvastatin Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Patient Taking, Aspirin 75 mg":{
                 "isTabular": true
             },
             "Stroke Follow, Patient taking, Aspirin Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Patient taking, Aspirin Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Patient taking, Aspirin Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Rx, Atorvastatin 10 mg":{
                 "isTabular": true
             },
             "Stroke Follow, Rx, Atorvastatin Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Rx, Atorvastatin Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Rx, Atorvastatin Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Rx, Aspirin 75 mg":{
                 "isTabular": true
             },
             "Stroke Follow, Rx, Aspirin Morning":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Rx, Aspirin Afternoon":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "Stroke Follow, Rx, Aspirin Night":{
                 "disableAddNotes": true,
-                "dropdown": true
+                "dropdown": true,
+                "required":true
             },
             "HTN Follow, Counselling":{
                 "multiSelect": true
@@ -416,8 +587,17 @@
             "HTN Follow, ADRs":{
                 "multiSelect": true
             },
+            "HTN Follow, ADRs":{
+                "required":true
+            },
+            "HTN Follow, Counselling":{
+                "required": true
+            },
             "HTN Follow, New Co-morbidities":{
                 "multiSelect": true
+            },
+            "HTN Follow, New Co-morbidities":{
+                "required":true
             },
             "Stroke Initial, Substance use (current use)":{
                 "multiSelect": true
@@ -428,14 +608,59 @@
             "Stroke Initial, Family H/O":{
                 "multiSelect": true
             },
+            "Stroke Follow, Weight":{
+                "required":true
+            },
+            "Stroke Follow, Random Blood Sugar":{
+                "required":true
+            },
             "Stroke Follow, Counselling":{
                 "multiSelect": true
+            },
+            "Stroke Follow, Counselling":{
+                "required":true
+            },
+            "Stroke Follow, Has the patient taken todays medicines as instructed":{
+                "required":true
+            },
+            "Stroke Follow, How many days patient is out of medicines?":{
+                "required":true
+            },
+            "Stroke Follow, Any cardiac chest pain since the last clinic visit?":{
+                "required":true
+            },
+            "Stroke Follow, any shortness of breath due to which patient is unable to do household/occupational work?":{
+                "required":true
+            },
+            "Stroke Follow, since last visit, did the patient have weakness on one side of his body?":{
+                "required":true
+            },
+            "Stroke Follow, If there was weakness on one side of the body, did it last more than 24 hrs":{
+                "required":true
+            },
+            "Stroke Follow, Days":{
+                "required":true
+            },
+            "Stroke Follow, Medicine dispensed to":{
+                "required":true
+            },
+            "Stroke Follow, Current use of tobacco":{
+                "required":true
+            },
+            "Stroke Follow, Current use of alcohol":{
+                "required":true
             },
             "Stroke Follow, ADRs":{
                 "multiSelect": true
             },
+            "Stroke Follow, ADRs":{
+                "required": true
+            },
             "Stroke Follow, New Co-morbidities":{
                 "multiSelect": true
+            },
+            "Stroke Follow, New Co-morbidities":{
+                "required": true
             },
             "defaults": {
                 "Number of living children": 1,

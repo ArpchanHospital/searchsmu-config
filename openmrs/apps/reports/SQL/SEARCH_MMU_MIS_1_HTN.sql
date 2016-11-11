@@ -232,7 +232,7 @@ Left Join
 on HTNPatientDeath.city_village=PatientCountPerVillage.city_village
 left join
 (
-				Select city_village, sum(case when NoOfTimesAbsent >= 3 then 1 else 0 end ) 'CountOfAbsentPat'
+				Select city_village, sum(case when NoOfTimesAbsent >= 3 then 1  end ) 'CountOfAbsentPat'
 				from (
 				/*Getting the count for village and patient who were absent in last three visits*/
 						Select paddr.city_village, o.person_id, count(o.obs_id) NoOfTimesAbsent 
@@ -240,35 +240,34 @@ left join
 							on o.concept_id=cname.concept_id
 							inner join person_address paddr
 							on paddr.person_id=o.person_id
-							Where cname.name in ('HTN Follow, Is the patient absent?') 
+							Where cname.name in ('HTN Follow, Is the patient present?') 
 							and cname.concept_name_type='FULLY_SPECIFIED'
-							and o.value_coded  in (Select concept_id from concept_name where name in ('YES') and cname.concept_name_type='FULLY_SPECIFIED' and voided=0)
+							and o.value_coded  in (Select concept_id from concept_name where name in ('NO') and cname.concept_name_type='FULLY_SPECIFIED' and voided=0)
 							and o.voided=0
 							and date(o.date_created) in ( /*Getting the last three visit dates for a visit location using dense rank*/
 											Select LastThreeVisitPerLocation.dcreated
 											from (
-											SELECT  Location_id,dcreated,denseRank
-											FROM
-											(
-											  SELECT  Location_id,
-													  
-													  dcreated,
-													  @rn1 := if(@pk1=Location_id, if(@sal=dcreated, @rn1, @rn1+@val),1) as denseRank,
-													  @val := if(@pk1=Location_id, if(@sal=dcreated, @val+1, 1),1) as value,
-													  @pk1 := Location_id,
-													  @sal := dcreated     
-											  FROM
-											  (
-												SELECT  distinct Location_id,
-														
-														date(date_created) as dcreated
-												FROM    visit
-												ORDER BY Location_id,dcreated desc
-												) A
-											) B
-											where denseRank <=3
-											) LastThreeVisitPerLocation inner join location loc on loc.location_id=LastThreeVisitPerLocation.Location_id
-											where loc.address4 = paddr.address4
+													SELECT  Location_id,dcreated,denseRank 
+													FROM
+													(
+														SELECT  Location_id,
+														dcreated,
+														@rn1 := if(@pk1=Location_id, if(@sal=dcreated, @rn1, @rn1+@val),1) as denseRank,
+														@val := if(@pk1=Location_id, if(@sal=dcreated, @val+1, 1),1) as value,
+														@pk1 := Location_id,
+														@sal := dcreated     
+														FROM
+														(
+															SELECT  distinct addr.city_village as Location_id,
+															date(o.date_created) as dcreated
+															FROM    obs o inner join person_address addr
+															on o.person_id=addr.person_id
+															ORDER BY Location_id,dcreated desc
+														) A
+													) B
+													where denseRank <=3
+											) LastThreeVisitPerLocation 
+											where LastThreeVisitPerLocation.Location_id = paddr.city_village
 						) group by paddr.city_village, o.person_id
 
 				) ab group by ab.city_village
