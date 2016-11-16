@@ -241,25 +241,17 @@
                 "multiSelect": true
             },
             "DM Follow, ADRs":{
-                "multiSelect": true
-            },
-            "DM Follow, ADRs":{
-                "required": true
+                
+                "multiSelect": true   
             },
             "DM Follow, New Co-morbidities":{
                 "multiSelect": true
             },
-            "DM Follow, New Co-morbidities":{
-               
-                "required": true
-            },
+            
             "DM Follow, Current use of tobacco":{
                 "required": true
             },
             "DM Follow, Current use of alcohol":{
-                "required": true
-            },
-            "DM Follow, Counselling":{
                 "required": true
             },
             "HTN Initial, Substance use (current use)":{
@@ -587,17 +579,8 @@
             "HTN Follow, ADRs":{
                 "multiSelect": true
             },
-            "HTN Follow, ADRs":{
-                "required":true
-            },
-            "HTN Follow, Counselling":{
-                "required": true
-            },
             "HTN Follow, New Co-morbidities":{
                 "multiSelect": true
-            },
-            "HTN Follow, New Co-morbidities":{
-                "required":true
             },
             "Stroke Initial, Substance use (current use)":{
                 "multiSelect": true
@@ -616,9 +599,6 @@
             },
             "Stroke Follow, Counselling":{
                 "multiSelect": true
-            },
-            "Stroke Follow, Counselling":{
-                "required":true
             },
             "Stroke Follow, Has the patient taken todays medicines as instructed":{
                 "required":true
@@ -653,14 +633,8 @@
             "Stroke Follow, ADRs":{
                 "multiSelect": true
             },
-            "Stroke Follow, ADRs":{
-                "required": true
-            },
             "Stroke Follow, New Co-morbidities":{
                 "multiSelect": true
-            },
-            "Stroke Follow, New Co-morbidities":{
-                "required": true
             },
             "defaults": {
                 "Number of living children": 1,
