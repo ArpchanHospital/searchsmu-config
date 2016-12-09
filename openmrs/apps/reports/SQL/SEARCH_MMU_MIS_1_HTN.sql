@@ -1,23 +1,23 @@
 Select 
 PatientCountPerVillage.city_village as 'Village',
-TotalHtnDmStrokePatientConfirmed.CountOfPat as 'Total HTN, DM and Stroke Confirmed',
-TotalFollowUpPatientSeenInThisVisit.TotalFollowUpCount as 'Number seem by MMU in this visit',
-HTNPatientNeedingFollowUP.CountOfPat as 'Number needing follow up by MMU based on MMU physician evaluation',
-HTNNumberSeenByMMUInThisVisit.TotalFollowUpCount as 'HTN Patient seen by MMU in this visit',
-HTNTotalPatientIdentifiedInVillage.CountOfPat as 'Total HTN patients identified in the village who are eligible for treatment under MMU',
+ifnull(TotalHtnDmStrokePatientConfirmed.CountOfPat,0) as 'Total HTN, DM and Stroke Confirmed',
+ifnull(TotalFollowUpPatientSeenInThisVisit.TotalFollowUpCount,0) as 'Number seem by MMU in this visit',
+ifnull(HTNPatientNeedingFollowUP.CountOfPat,0) as 'Number needing follow up by MMU based on MMU physician evaluation',
+ifnull(HTNNumberSeenByMMUInThisVisit.TotalFollowUpCount,0) as 'HTN Patient seen by MMU in this visit',
+ifnull(HTNTotalPatientIdentifiedInVillage.CountOfPat,0) as 'Total HTN patients identified in the village who are eligible for treatment under MMU',
 /*HTNPatientSeenInThisMonth.CountOfPat as 'HTN patients seen this month',*/
-HTNPercentSeenThisMonth.PercentHTNPatSeen as '% of follow up HTN patients seen this month',
-NewHTNConfirmedPatient.CountOfPat as 'New HTN patients seen in this visit',
-HTNNumberOfPatientGivenMedByCHW.Count_Patient_Med_CHW as 'Number of patients whose medicines given to CHW as the pt did not/could not attend the clinic',
-HTNPercentMedsGivenToCHW.PercentHTNCHW as '% number of patients whose medicines given to CHW',
-HTNPatientAbsentInLastThreeVisits.CountOfAbsentPat as 'Number of patients who discontinued treatment from MMU',
-HTNPercentPatientsDiscontinuedTreatment.PercentHTNDiscontinued as '% number of patients who discontinued treatment from MMU',
-HTNPatientWithSideEffects.Count_Patient_ADR as 'HTN patients reporting side effects due to medicines',
-HTNPersentPatientWithSideEffects.PercentHTNPatientWithSideEffects as '% HTN patients reporting side effects due to medicines',
-HTNPatientWithSAE.Count_Patient_SAE as 'Serious adverse event due to HTN medicines',
-HTNPersentPatientWithSAE.PercentHTNPatientWithSideEffects as '% HTN patients reporting SAE',
-HTNPatientDeath.CountOfDeadPat as 'Number of HTN patients whose deaths were reported this month',
-HTNPersentPatientDeath.PercentHTNDead '% Number of HTN patients deaths'
+ifnull(HTNPercentSeenThisMonth.PercentHTNPatSeen,0) as '% of follow up HTN patients seen this month',
+ifnull(NewHTNConfirmedPatient.CountOfPat,0) as 'New HTN patients seen in this visit',
+ifnull(HTNNumberOfPatientGivenMedByCHW.Count_Patient_Med_CHW,0) as 'Number of patients whose medicines given to CHW as the pt did not/could not attend the clinic',
+ifnull(HTNPercentMedsGivenToCHW.PercentHTNCHW,0) as '% number of patients whose medicines given to CHW',
+ifnull(HTNPatientAbsentInLastThreeVisits.CountOfAbsentPat,0) as 'Number of patients who discontinued treatment from MMU',
+ifnull(HTNPercentPatientsDiscontinuedTreatment.PercentHTNDiscontinued,0) as '% number of patients who discontinued treatment from MMU',
+ifnull(HTNPatientWithSideEffects.Count_Patient_ADR,0) as 'HTN patients reporting side effects due to medicines',
+ifnull(HTNPersentPatientWithSideEffects.PercentHTNPatientWithSideEffects,0) as '% HTN patients reporting side effects due to medicines',
+ifnull(HTNPatientWithSAE.Count_Patient_SAE,0) as 'Serious adverse event due to HTN medicines',
+ifnull(HTNPersentPatientWithSAE.PercentHTNPatientWithSideEffects,0) as '% HTN patients reporting SAE',
+ifnull(HTNPatientDeath.CountOfDeadPat,0) as 'Number of HTN patients whose deaths were reported this month',
+ifnull(HTNPersentPatientDeath.PercentHTNDead,0) '% Number of HTN patients deaths'
 from 
 (
 /*Village*/
@@ -37,7 +37,7 @@ Left Join
 			and cn.concept_name_type='FULLY_SPECIFIED'
 			and cn.voided=0
 			and cn.name='Yes'
-			and cast(coalesce(pa.date_changed,pa.date_created) as date) < '#startDate#'
+			and cast(coalesce(pa.date_changed,pa.date_created) as date) <= '#startDate#'
 			Group by paddr.city_village
 ) as TotalHtnDmStrokePatientConfirmed
 On TotalHtnDmStrokePatientConfirmed.city_village= PatientCountPerVillage.city_village

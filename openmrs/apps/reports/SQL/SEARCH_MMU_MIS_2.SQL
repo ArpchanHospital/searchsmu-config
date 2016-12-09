@@ -17,7 +17,7 @@ Count_StrokeFollowPatient_BP_Less_140_90 as 'Stroke patients with BP<140/90  (SB
 from 
 
 (
-	Select city_village,  count(distinct person_id) TotalPatientInVillage from person_address
+	Select address4,city_village,  count(distinct person_id) TotalPatientInVillage from person_address
 	group by city_village
 
 ) as PA
@@ -332,4 +332,4 @@ Left join
 ) as StrokeFollowPatientBP
 
 on PA.city_village=StrokeFollowPatientBP.city_village
-Order by Village;
+Order by PA.address4,Village;

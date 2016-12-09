@@ -15,7 +15,7 @@ StrokeFollowUpCounter.Percent_of_patients_on_one_drug as 'Stroke Percent of pati
 StrokeFollowUpCounter.Percent_of_patients_on_two_drug as 'Stroke Percent of patients on two drug'
 from 
 (/*To get the list of all the villages to join with the obs*/
-Select Distinct city_village from person_address
+Select Distinct address4,city_village from person_address
 ) as PA
 
 Left join 
@@ -662,4 +662,5 @@ Where coalesce(  /*To remove the villages which doesn't have any data recorded*/
 			StrokeFollowUpCounter.Percent_of_patients_on_Atorvastatin,
 			StrokeFollowUpCounter.Percent_of_patients_on_one_drug,
 			StrokeFollowUpCounter.Percent_of_patients_on_two_drug
-			) is not null;
+			) is not null
+Order by PA.address4,Village;
