@@ -149,6 +149,16 @@
                     "showDetailsButton": true,
                     "pivotTable": {}
                 }
+            },
+	       "formDisplaySummary":{
+                "title": "Templates Filled",
+                "type": "forms",
+                "dashboardConfig": {
+                    "title": null,
+                    "maximumNoOfVisits": 10
+                },
+                "formGroup":["HTN Initial","DM Initial","Stroke Initial","DM Follow-up","HTN Follow-Up","Stroke Follow-Up"],
+                "displayOrder": 7
             }
         }
     }
