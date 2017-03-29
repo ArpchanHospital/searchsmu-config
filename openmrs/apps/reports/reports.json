@@ -124,7 +124,8 @@
             "forDataAnalysis": false,
             "visitTypesToFilter": [
                 "OPD"
-            ]
+            ],
+	    "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DM Follow Up Report.xls"
         }
     },
     "htnInitialeport": {
@@ -188,7 +189,8 @@
             "forDataAnalysis": false,
             "visitTypesToFilter": [
                 "OPD"
-            ]
+            ],
+            "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/HTN Follow Up Report.xls"
         }
     },
     "mmuMIS1RepHTN": {
